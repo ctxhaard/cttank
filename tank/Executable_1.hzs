@@ -30,6 +30,7 @@
   <ProjectSessionItem path="Excercise" name="unnamed" />
   <ProjectSessionItem path="Excercise;CTLExercise" name="unnamed" />
   <ProjectSessionItem path="Excercise;CTLExercise;Source Files" name="unnamed" />
+  <ProjectSessionItem path="Excercise;CTLExercise;System Files" name="unnamed" />
  </Project>
  <Register1>
   <RegisterWindow openNodes="USART2;GPIOD;NVIC;I2C1" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="USART2/CR1;USART2/CR2;USART2/CR3;USART2/BRR;USART2/GTPR;USART2/RTOR;USART2/RQR;USART2/ISR;USART2/ICR;USART2/RDR;USART2/TDR;GPIOD/MODER;GPIOD/OTYPER;GPIOD/OSPEEDR;GPIOD/PUPDR;GPIOD/IDR;GPIOD/ODR;GPIOD/BSRR;GPIOD/LCKR;GPIOD/AFRL;GPIOD/AFRH;GPIOD/BRR;NVIC/NVIC_ISER0;NVIC/NVIC_ISER1;NVIC/NVIC_ISER2;NVIC/NVIC_ICER0;NVIC/NVIC_ICER1;NVIC/NVIC_ICER2;NVIC/NVIC_ISPR0;NVIC/NVIC_ISPR1;NVIC/NVIC_ISPR2;NVIC/NVIC_ICPR0;NVIC/NVIC_ICPR1;NVIC/NVIC_ICPR2;NVIC/NVIC_IABR0;NVIC/NVIC_IABR1;NVIC/NVIC_IABR2;NVIC/NVIC_IPR0;NVIC/NVIC_IPR1;NVIC/NVIC_IPR2;NVIC/NVIC_IPR3;NVIC/NVIC_IPR4;NVIC/NVIC_IPR5;NVIC/NVIC_IPR6;NVIC/NVIC_IPR7;NVIC/NVIC_IPR8;NVIC/NVIC_IPR9;NVIC/NVIC_IPR10;NVIC/NVIC_IPR11;NVIC/NVIC_IPR12;NVIC/NVIC_IPR13;NVIC/NVIC_IPR14;NVIC/NVIC_IPR15;NVIC/NVIC_IPR16;NVIC/NVIC_IPR17;NVIC/NVIC_IPR18;NVIC/NVIC_IPR19;NVIC/NVIC_IPR20;I2C1/CR1;I2C1/CR2;I2C1/OAR1;I2C1/OAR2;I2C1/TIMINGR;I2C1/TIMEOUTR;I2C1/ISR;I2C1/ICR;I2C1/PECR;I2C1/RXDR;I2C1/TXDR" name="Executable_1" />
@@ -68,9 +69,7 @@
   <Watches active="0" update="Never" />
  </Watch4>
  <Files>
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="/media/ctomasin/ACCOUNTS/CrossWorks Projects/CTLExercise/main_ctl.c" y="73" path="/media/ctomasin/ACCOUNTS/CrossWorks Projects/CTLExercise/main_ctl.c" left="0" selected="0" name="unnamed" top="54" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="/media/ctomasin/ACCOUNTS/CrossWorks Projects/CTLExercise/bluetooth.c" y="42" path="/media/ctomasin/ACCOUNTS/CrossWorks Projects/CTLExercise/bluetooth.c" left="0" selected="0" name="unnamed" top="40" />
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="/media/ctomasin/ACCOUNTS/CrossWorks Projects/CTLExercise/stm32f30x_conf.h" y="35" path="/media/ctomasin/ACCOUNTS/CrossWorks Projects/CTLExercise/stm32f30x_conf.h" left="0" selected="0" name="unnamed" top="26" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="/home/ctomasin/development/github/cttank/tank/CTLExercise/stm32f30x_conf.h" y="35" path="/home/ctomasin/development/github/cttank/tank/CTLExercise/stm32f30x_conf.h" left="0" selected="1" name="unnamed" top="31" />
  </Files>
  <ARMCrossStudioWindow activeProject="CTLExercise" autoConnectTarget="ST-LINK/V2" debugSearchFileMap="" fileDialogInitialDirectory="/Users/ctomasin/Development/Cortex-M/tools/STM32F3-Discovery_FW_V1.1.0/Libraries/STM32F30x_StdPeriph_Driver/src" fileDialogDefaultFilter="*.c" autoConnectCapabilities="266111" debugSearchPath="" buildConfiguration="THUMB Release" />
 </session>

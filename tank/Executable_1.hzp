@@ -29,7 +29,7 @@
   <configuration
     Name="Common"
     c_preprocessor_definitions="USE_STDPERIPH_DRIVER"
-    c_user_include_directories=".;/Users/ctomasin/Development/Cortex-M/tools/STM32F3-Discovery_FW_V1.1.0/Libraries/STM32F30x_StdPeriph_Driver/inc" />
+    c_user_include_directories=".;$(SolutionDir)/STM32F30x_StdPeriph_Driver/inc" />
   <project Name="CTLExercise">
     <configuration
       Name="Common"
@@ -93,13 +93,13 @@
       <file file_name="STM32_ctl_board.c">
         <configuration Name="THUMB Debug" build_exclude_from_build="No" />
       </file>
-      <file file_name="../../tools/STM32F3-Discovery_FW_V1.1.0/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c" />
-      <file file_name="../../tools/STM32F3-Discovery_FW_V1.1.0/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_i2c.c" />
-      <file file_name="../../tools/STM32F3-Discovery_FW_V1.1.0/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_misc.c" />
-      <file file_name="../../tools/STM32F3-Discovery_FW_V1.1.0/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c" />
-      <file file_name="../../tools/STM32F3-Discovery_FW_V1.1.0/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c" />
-      <file file_name="../../tools/STM32F3-Discovery_FW_V1.1.0/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_usart.c" />
-      <file file_name="../../tools/STM32F3-Discovery_FW_V1.1.0/Libraries/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c" />
+      <file file_name="$(SolutionDir)/STM32F30x_StdPeriph_Driver/src/stm32f30x_gpio.c" />
+      <file file_name="$(SolutionDir)/STM32F30x_StdPeriph_Driver/src/stm32f30x_i2c.c" />
+      <file file_name="$(SolutionDir)/STM32F30x_StdPeriph_Driver/src/stm32f30x_misc.c" />
+      <file file_name="$(SolutionDir)/STM32F30x_StdPeriph_Driver/src/stm32f30x_rcc.c" />
+      <file file_name="$(SolutionDir)/STM32F30x_StdPeriph_Driver/src/stm32f30x_exti.c" />
+      <file file_name="$(SolutionDir)/STM32F30x_StdPeriph_Driver/src/stm32f30x_usart.c" />
+      <file file_name="$(SolutionDir)/STM32F30x_StdPeriph_Driver/src/stm32f30x_syscfg.c" />
     </folder>
   </project>
 </solution>
