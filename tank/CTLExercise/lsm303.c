@@ -161,79 +161,79 @@ void lsm303_init(void)
 
 void lsm303_WrReg(I2C_TypeDef *i2c,uint8_t addr,uint8_t Reg, uint8_t Val){
 
-	//Wait until I2C isn't busy
-	while(I2C_GetFlagStatus(i2c, I2C_FLAG_BUSY) == SET);
-	
-	I2C_TransferHandling(i2c, addr, 1, I2C_Reload_Mode, I2C_Generate_Start_Write);
+    //Wait until I2C isn't busy
+    while(I2C_GetFlagStatus(i2c, I2C_FLAG_BUSY) == SET);
+    
+    I2C_TransferHandling(i2c, addr, 1, I2C_Reload_Mode, I2C_Generate_Start_Write);
 
     I2C_ITConfig(I2C1,I2C_IT_TXI,ENABLE);
     ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&e1,EVENT_TXIS,CTL_TIMEOUT_NONE, 0);
 
-	//Send the address of the register we wish to write to
-	I2C_SendData(i2c, Reg);
+    //Send the address of the register we wish to write to
+    I2C_SendData(i2c, Reg);
 
-	//Ensure that the transfer complete reload flag is
-	//set, essentially a standard TC flag
+    //Ensure that the transfer complete reload flag is
+    //set, essentially a standard TC flag
     I2C_ITConfig(I2C1,I2C_IT_TCI,ENABLE);
     ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&e1,EVENT_TCR,CTL_TIMEOUT_NONE,0);
 
-	//Now that the HMC5883L knows which register
-	//we want to write to, send the address again
-	//and ensure the I2C peripheral doesn't add
-	//any start or stop conditions
-	I2C_TransferHandling(i2c, addr, 1, I2C_AutoEnd_Mode, I2C_No_StartStop);
+    //Now that the HMC5883L knows which register
+    //we want to write to, send the address again
+    //and ensure the I2C peripheral doesn't add
+    //any start or stop conditions
+    I2C_TransferHandling(i2c, addr, 1, I2C_AutoEnd_Mode, I2C_No_StartStop);
 
     I2C_ITConfig(I2C1,I2C_IT_TXI,ENABLE);
     ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&e1,EVENT_TXIS,CTL_TIMEOUT_NONE,0);
-	//Again, wait until the transmit interrupted flag is set
-	//while(I2C_GetFlagStatus(i2c, I2C_FLAG_TXIS) == RESET);
+    //Again, wait until the transmit interrupted flag is set
+    //while(I2C_GetFlagStatus(i2c, I2C_FLAG_TXIS) == RESET);
 
-	//Send the value you wish you write to the register
-	I2C_SendData(i2c, Val);
+    //Send the value you wish you write to the register
+    I2C_SendData(i2c, Val);
 
-	//Wait for the stop flag to be set indicating
-	//a stop condition has been sent
+    //Wait for the stop flag to be set indicating
+    //a stop condition has been sent
     I2C_ITConfig(I2C1,I2C_IT_STOPI,ENABLE);
     ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&e1,EVENT_STOPF,CTL_TIMEOUT_NONE,0);
     I2C_ITConfig(I2C1,I2C_IT_STOPI,DISABLE);
-	//Clear the stop flag for the next potential transfer
-	I2C_ClearFlag(i2c, I2C_FLAG_STOPF);
+    //Clear the stop flag for the next potential transfer
+    I2C_ClearFlag(i2c, I2C_FLAG_STOPF);
 }
 
 uint8_t lsm303_RdReg(I2C_TypeDef *i2c,uint8_t addr,int8_t Reg, int8_t *Data, uint8_t DCnt){
-	int8_t Cnt, SingleData = 0;
+    int8_t Cnt, SingleData = 0;
 
-	//As per, ensure the I2C peripheral isn't busy!
-	while(I2C_GetFlagStatus(i2c, I2C_FLAG_BUSY) == SET);
+    //As per, ensure the I2C peripheral isn't busy!
+    while(I2C_GetFlagStatus(i2c, I2C_FLAG_BUSY) == SET);
 
-	//Again, start another tranfer using the "transfer handling"
-	//function, the end bit being set in software this time
-	//round, generate a start condition and indicate you will
-	//be writing data to the HMC device.
-	I2C_TransferHandling(i2c, addr, 1, I2C_SoftEnd_Mode, I2C_Generate_Start_Write);
+    //Again, start another tranfer using the "transfer handling"
+    //function, the end bit being set in software this time
+    //round, generate a start condition and indicate you will
+    //be writing data to the HMC device.
+    I2C_TransferHandling(i2c, addr, 1, I2C_SoftEnd_Mode, I2C_Generate_Start_Write);
     
     I2C_ITConfig(I2C1,I2C_IT_TXI,ENABLE);
     ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&e1,EVENT_TXIS,CTL_TIMEOUT_NONE, 0);
 
-	//Wait until the transmit interrupt status is set
-	//while(I2C_GetFlagStatus(i2c, I2C_FLAG_TXIS) == RESET);
+    //Wait until the transmit interrupt status is set
+    //while(I2C_GetFlagStatus(i2c, I2C_FLAG_TXIS) == RESET);
 
-	//Send the address of the register you wish to read
-	I2C_SendData(i2c, (uint8_t)Reg);
+    //Send the address of the register you wish to read
+    I2C_SendData(i2c, (uint8_t)Reg);
 
-	//Wait until transfer is complete!
-	//while(I2C_GetFlagStatus(i2c, I2C_FLAG_TC) == RESET);
+    //Wait until transfer is complete!
+    //while(I2C_GetFlagStatus(i2c, I2C_FLAG_TC) == RESET);
 
     I2C_ITConfig(I2C1,I2C_IT_TCI,ENABLE);
     ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&e1,EVENT_TC,CTL_TIMEOUT_NONE,0);
 
-	//As per, start another transfer, we want to read DCnt
-	//amount of bytes. Generate a start condition and
-	//indicate that we want to read.
-	I2C_TransferHandling(i2c, addr, DCnt, I2C_AutoEnd_Mode, I2C_Generate_Start_Read);
+    //As per, start another transfer, we want to read DCnt
+    //amount of bytes. Generate a start condition and
+    //indicate that we want to read.
+    I2C_TransferHandling(i2c, addr, DCnt, I2C_AutoEnd_Mode, I2C_Generate_Start_Read);
 
-	//Read in DCnt pieces of data
-	for(Cnt = 0; Cnt<DCnt; Cnt++){
+    //Read in DCnt pieces of data
+    for(Cnt = 0; Cnt<DCnt; Cnt++){
         //Wait until the RX register is full of luscious data!
         //while(I2C_GetFlagStatus(i2c, I2C_FLAG_RXNE) == RESET); 
         
@@ -241,7 +241,7 @@ uint8_t lsm303_RdReg(I2C_TypeDef *i2c,uint8_t addr,int8_t Reg, int8_t *Data, uin
         ctl_events_wait(CTL_EVENT_WAIT_ANY_EVENTS_WITH_AUTO_CLEAR,&e1,EVENT_RXNE,CTL_TIMEOUT_NONE,0);
         //If we're only reading one byte, place that data direct into the 
         //SingleData variable. If we're reading more than 1 piece of data 
-        //store in the array "Data" (a pointer from main) 		
+        //store in the array "Data" (a pointer from main)         
         if(DCnt > 1) Data[Cnt] = I2C_ReceiveData(i2c);
         else SingleData = I2C_ReceiveData(i2c);
      }
@@ -257,7 +257,7 @@ uint8_t lsm303_RdReg(I2C_TypeDef *i2c,uint8_t addr,int8_t Reg, int8_t *Data, uin
 
      //Return a single piece of data if DCnt was
      //less than 1, otherwise 0 will be returned.
-	return SingleData;
+    return SingleData;
 }
 
 uint16_t lsm303_read_heading()

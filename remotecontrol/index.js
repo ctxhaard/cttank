@@ -37,6 +37,10 @@ btSerial.on('found',function(address,name){
                 console.log('connected');
                 
                 btSerial.on('data',function(buffer){
+                    // TODO: enqueue buffer as string
+                    //      parse buffered string
+                    //      emit events when parsing succeedes
+                    //      forward as heading, acceleration, ecc
                     console.log(buffer.toString('utf-8'));
                     io.emit('msg',buffer.toString('utf-8'));
                 });

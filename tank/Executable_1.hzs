@@ -69,7 +69,9 @@
   <Watches active="0" update="Never" />
  </Watch4>
  <Files>
-  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="/home/ctomasin/development/github/cttank/tank/CTLExercise/stm32f30x_conf.h" y="35" path="/home/ctomasin/development/github/cttank/tank/CTLExercise/stm32f30x_conf.h" left="0" selected="1" name="unnamed" top="31" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="/home/ctomasin/development/github/cttank/tank/CTLExercise/stm32f30x_conf.h" y="35" path="/home/ctomasin/development/github/cttank/tank/CTLExercise/stm32f30x_conf.h" left="0" selected="0" name="unnamed" top="31" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="/home/ctomasin/development/github/cttank/tank/CTLExercise/bluetooth.c" y="43" path="/home/ctomasin/development/github/cttank/tank/CTLExercise/bluetooth.c" left="0" selected="1" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="/home/ctomasin/.rowley_associates_limited/CrossWorks for ARM/v3/packages/libraries/libctl/include/ctl.h" y="680" path="/home/ctomasin/.rowley_associates_limited/CrossWorks for ARM/v3/packages/libraries/libctl/include/ctl.h" left="0" selected="0" name="unnamed" top="662" />
  </Files>
  <ARMCrossStudioWindow activeProject="CTLExercise" autoConnectTarget="ST-LINK/V2" debugSearchFileMap="" fileDialogInitialDirectory="/Users/ctomasin/Development/Cortex-M/tools/STM32F3-Discovery_FW_V1.1.0/Libraries/STM32F30x_StdPeriph_Driver/src" fileDialogDefaultFilter="*.c" autoConnectCapabilities="266111" debugSearchPath="" buildConfiguration="THUMB Release" />
 </session>
