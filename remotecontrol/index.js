@@ -17,6 +17,14 @@ app.get('/',function(req,res){
     res.sendFile('index.html',{root: '.'});
 });
 
+app.get('/cartop.png',function(req,res){
+    res.sendFile('cartop.png',{root: '.'});
+});
+
+app.get('/jquery.rotate.1-1.js',function(req,res){
+    res.sendFile('jquery.rotate.1-1.js',{root: '.'});
+});
+
 io.on('connection',function(socket){
     console.log('a user connected');
     

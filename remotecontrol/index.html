@@ -10,10 +10,15 @@
         </style>
         <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
         <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="jquery.rotate.1-1.js"/></script>
         <script>
             var socket = io();
             socket.on('msg',function(msg){
-                $('#heading').text($.trim(msg));
+                msg = $.trim(msg);
+                var val = msg.split(':');
+                val = val[1] / 10
+                $('#heading').text(val);
+                $('#car').rotate(val,true);
             });
         </script>
     </head>
@@ -21,5 +26,6 @@
     <ul id="messages">
         <li id="heading"></li>
     </ul>
+    <img id="car" src="cartop.png" />
 </body>
 </html>
