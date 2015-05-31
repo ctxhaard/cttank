@@ -1,7 +1,11 @@
 {
   "name": "cttank-remote-control",
   "version": "0.0.1",
+  "private": true,
   "description": "A remote control for CTTank",
+  "scripts": {
+    "start": "node --harmony index.js"
+  },
   "dependencies": {
     "express": "^4.12.4",
     "http": "0.0.0",
