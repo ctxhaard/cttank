@@ -16,7 +16,7 @@
             socket.on('msg',function(msg){
                 msg = $.trim(msg);
                 var val = msg.split(':');
-                val = val[1] / 10
+                val = val[1] / 10;
                 $('#heading').text(val);
                 $('#car').rotate(val,true);
             });
